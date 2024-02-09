@@ -13,9 +13,9 @@
       (is (= 2 (count invoice-items)))
       (is (= 19
              (get-in invoice-items
-                     [:taxable/taxes 0 :tax/rate])))
-      (is (= "ii3" (get invoice-items :invoice-item/id)))
+                     [0 :taxable/taxes 0 :tax/rate])))
+      (is (= "ii3" (get-in invoice-items [0 :invoice-item/id])))
       (is (= 1
              (get-in invoice-items
-                     [:retentionable/retentions 0 :retention/rate])))
-      (is (= "ii4" (get invoice-items :invoice-item/id))))))
+                     [1 :retentionable/retentions 0 :retention/rate])))
+      (is (= "ii4" (get-in invoice-items [1 :invoice-item/id]))))))
